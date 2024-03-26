@@ -1,4 +1,3 @@
-drop table date_movie
 create TABLE MOVIES(
     show_id varchar (max),
     director VARCHAR(max),
@@ -10,7 +9,7 @@ create TABLE MOVIES(
 CREATE TABLE DATE_MOVIE(
     show_id varchar(max),
     LANZAMIENTO int,
-	AÑO_AGREGADO date
+	AÃ‘O_AGREGADO date
 
 );
 
@@ -22,11 +21,11 @@ CREATE TABLE TIME_MOVIE(
 INSERT INTO MOVIES(show_id , director,PELICULA,PAIS,tipo)
 SELECT show_id , director , title , country , type FROM NETFLIX_LIMPIO_SQL 
 
-INSERT INTO DATE_MOVIE(show_id , AÑO_AGREGADO , LANZAMIENTO)
+INSERT INTO DATE_MOVIE(show_id , AÃ‘O_AGREGADO , LANZAMIENTO)
 SELECT show_id , date_added , release_year FROM NETFLIX_LIMPIO_SQL 
 
 INSERT INTO TIME_MOVIE(show_id , duracion_min , temporadas)
 SELECT show_id , duration_min , duration FROM NETFLIX_LIMPIO_SQL 
 
-select a.pelicula , b.lanzamiento , b.año_agregado from MOVIES a
+select a.pelicula , b.lanzamiento , b.aÃ±o_agregado from MOVIES a
 left join DATE_MOVIE b on a.show_id = b.show_id
